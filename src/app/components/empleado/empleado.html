@@ -1,0 +1,68 @@
+<div class="container mt-4 empleado-container">
+  <div class="row g-4">
+
+    <!-- FORMULARIO -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h4 class="mb-3">Registro de Nuevo Empleado</h4>
+
+          <form #empleadoForm="ngForm" (ngSubmit)="addEmpleado(empleadoForm)">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Ingrese su nombre"
+                     name="nombre"
+                     [(ngModel)]="empleadoService.selectedEmpleado.nombre">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Ingrese su cargo"
+                     name="cargo"
+                     [(ngModel)]="empleadoService.selectedEmpleado.cargo">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Ingrese su departamento"
+                     name="departamento"
+                     [(ngModel)]="empleadoService.selectedEmpleado.departamento">
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control" placeholder="Ingrese su sueldo"
+                     name="sueldo"
+                     [(ngModel)]="empleadoService.selectedEmpleado.sueldo">
+            </div>
+            <button class="btn btn-primary" type="submit">Crear</button>
+            <button class="btn btn-secondary" type="button">Eliminar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLA -->
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <table class="table table-striped mb-0">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Cargo</th>
+                <th>Departamento</th>
+                <th>Operaciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let empleado of empleadoService.empleados">
+                <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.cargo }}</td>
+                <td>{{ empleado.departamento }}</td>
+                <td>
+                  <button class="btn btn-secondary">Actualizar</button>
+                  <button class="btn btn-danger">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
