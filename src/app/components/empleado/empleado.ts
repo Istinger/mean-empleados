@@ -39,4 +39,18 @@ export class EmpleadoComponent implements OnInit {
     );
   }
 
+  deleteEmpleado(id:string){
+    this.empleadoService.deleteEmpleado(id).subscribe(
+      () => this.getEmpleados(),
+      (err) => console.error(err)
+    );
+  }
+
+  updateEmpleado(empleado: EmpleadoModel) {
+    this.empleadoService.updateEmpleado(empleado).subscribe(
+      () => this.getEmpleados(),
+      (err) => console.error(err)
+    );
+  }
+
 }

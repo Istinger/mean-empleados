@@ -24,4 +24,10 @@ export class EmpleadoService {
   createEmpleado(empleado: Empleado) {
     return this.http.post(this.URL_API, empleado);
   }
+  deleteEmpleado(id: string) {
+    return this.http.delete(`${this.URL_API}/${id}`);
+  }
+  updateEmpleado(empleado: Empleado) {
+    return this.http.put(`${this.URL_API}/${empleado._id}`, empleado);
+  }
 }
